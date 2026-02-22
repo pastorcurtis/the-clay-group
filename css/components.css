@@ -1,0 +1,283 @@
+/* ═══════════════════════════════════════════════════
+   THE CLAY GROUP — Components
+   Buttons, cards, badges, forms, dividers
+   ═══════════════════════════════════════════════════ */
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-base) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary {
+  background: var(--champagne);
+  color: var(--obsidian);
+}
+
+.btn--primary:hover {
+  background: var(--ivory);
+  color: var(--obsidian);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-champagne);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--champagne);
+  border: var(--border-champagne);
+}
+
+.btn--outline:hover {
+  background: var(--champagne);
+  color: var(--obsidian);
+  transform: translateY(-2px);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ivory);
+  padding: var(--space-xs) 0;
+  letter-spacing: 0.2em;
+}
+
+.btn--ghost::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--champagne);
+  transition: width var(--duration-base) var(--ease-out);
+}
+
+.btn--ghost:hover::after {
+  width: 100%;
+}
+
+.btn--ghost:hover {
+  color: var(--champagne);
+}
+
+/* ─── Cards ─── */
+.card {
+  background: var(--charcoal);
+  border: var(--border-whisper);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.card:hover {
+  border-color: var(--champagne-dim);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-champagne);
+}
+
+.card__label {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-bottom: var(--space-sm);
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--ivory);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.card__text {
+  color: var(--silver);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+/* ─── Badges ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  padding: var(--space-2xs) var(--space-sm);
+  border: var(--border-champagne);
+  border-radius: 2px;
+}
+
+/* ─── Section Label (reusable heading pattern) ─── */
+.section-label {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-bottom: var(--space-md);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--fw-light);
+  color: var(--ivory);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
+}
+
+.section-text {
+  color: var(--silver);
+  font-size: var(--text-lg);
+  max-width: 55ch;
+  line-height: 1.8;
+}
+
+/* ─── Divider ─── */
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--champagne-dim);
+  margin: var(--space-xl) 0;
+}
+
+.divider--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Forms ─── */
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: var(--space-xs);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: var(--charcoal);
+  border: var(--border-whisper);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--champagne-dim);
+  box-shadow: var(--shadow-champagne);
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--ash);
+}
+
+/* ─── Stat Block ─── */
+.stat {
+  text-align: center;
+}
+
+.stat__number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--fw-light);
+  color: var(--ivory);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.stat__label {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-top: var(--space-xs);
+}
+
+/* ─── Property Card ─── */
+.property-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  group: true;
+}
+
+.property-card__image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.property-card:hover .property-card__image {
+  transform: scale(1.05);
+}
+
+.property-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 8, 8, 0.9) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-xl);
+}
+
+.property-card__location {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--champagne);
+}
+
+.property-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--ivory);
+  margin-top: var(--space-2xs);
+}
+
+.property-card__price {
+  font-family: var(--font-body);
+  font-weight: var(--fw-light);
+  font-size: var(--text-sm);
+  color: var(--silver);
+  margin-top: var(--space-2xs);
+}

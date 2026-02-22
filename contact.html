@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Consultation — The Clay Group</title>
+  <meta name="description" content="Request a private consultation with The Clay Group. Strategic real estate positioning for principals who demand institutional-grade wealth strategy.">
+  <meta property="og:title" content="Private Consultation — The Clay Group">
+  <meta property="og:description" content="Request a private consultation with The Clay Group.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">The Clay Group</a>
+      <div class="nav__links">
+        <a href="philosophy.html" class="nav__link">Philosophy</a>
+        <a href="portfolio.html" class="nav__link">Portfolio</a>
+        <a href="intelligence.html" class="nav__link">Intelligence</a>
+        <a href="method.html" class="nav__link">Method</a>
+        <a href="contact.html" class="nav__link nav__link--cta nav__link--active">Private Consultation</a>
+      </div>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" aria-hidden="true">
+    <a href="philosophy.html" class="nav__mobile-link">Philosophy</a>
+    <a href="portfolio.html" class="nav__mobile-link">Portfolio</a>
+    <a href="intelligence.html" class="nav__mobile-link">Intelligence</a>
+    <a href="method.html" class="nav__mobile-link">Method</a>
+    <a href="contact.html" class="nav__mobile-link">Private Consultation</a>
+  </div>
+
+  <main>
+    <section style="padding-top: calc(var(--section-pad) + 80px); background: var(--void);" aria-labelledby="page-title">
+      <div class="container container--narrow">
+        <p class="section-label reveal">Begin</p>
+        <h1 class="section-title reveal" id="page-title" style="font-size: var(--text-4xl);">Request Private Consultation</h1>
+        <p class="section-text reveal">Every engagement begins with a conversation. Share your objectives, and we'll determine if a strategic partnership serves your interests.</p>
+        <div class="divider reveal"></div>
+      </div>
+    </section>
+
+    <section style="background: var(--obsidian); padding-top: var(--space-2xl);" aria-label="Consultation form">
+      <div class="container container--narrow">
+        <form action="https://formsubmit.co/your@email.com" method="POST" class="reveal">
+          <input type="hidden" name="_subject" value="Private Consultation Request — The Clay Group">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://theclaygroup.com/contact.html">
+          <input type="text" name="_honey" style="display:none">
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);">
+            <div class="form-group">
+              <label class="form-label" for="first-name">First Name</label>
+              <input class="form-input" type="text" id="first-name" name="first_name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="last-name">Last Name</label>
+              <input class="form-input" type="text" id="last-name" name="last_name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone</label>
+            <input class="form-input" type="tel" id="phone" name="phone">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="interest">Area of Interest</label>
+            <select class="form-input" id="interest" name="interest" required>
+              <option value="" disabled selected>Select your focus</option>
+              <option value="acquisition">Strategic Acquisition</option>
+              <option value="portfolio">Portfolio Development</option>
+              <option value="intelligence">Market Intelligence</option>
+              <option value="wealth">Wealth Strategy</option>
+              <option value="partnership">Partnership Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="capital">Estimated Capital Range</label>
+            <select class="form-input" id="capital" name="capital_range">
+              <option value="" disabled selected>Select range</option>
+              <option value="250k-500k">$250K – $500K</option>
+              <option value="500k-1m">$500K – $1M</option>
+              <option value="1m-5m">$1M – $5M</option>
+              <option value="5m-10m">$5M – $10M</option>
+              <option value="10m+">$10M+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Your Objectives</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Describe your wealth objectives, timeline, and any specific markets of interest." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">Submit Consultation Request</button>
+        </form>
+
+        <div class="reveal" style="text-align: center; margin-top: var(--space-3xl); padding-bottom: var(--space-xl);">
+          <p style="color: var(--ash); font-size: var(--text-sm);">All consultations are confidential. We respond within 24 business hours.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">The Clay Group</div>
+          <p class="footer__tagline">Where real estate becomes wealth architecture.</p>
+        </div>
+        <div class="footer__nav">
+          <div class="footer__nav-group">
+            <h4>Navigate</h4>
+            <a href="philosophy.html">Philosophy</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="intelligence.html">Intelligence</a>
+            <a href="method.html">Method</a>
+          </div>
+          <div class="footer__nav-group">
+            <h4>Connect</h4>
+            <a href="contact.html">Private Consultation</a>
+            <a href="mailto:info@theclaygroup.com">Email</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 The Clay Group. All rights reserved.</span>
+        <div class="footer__legal"><a href="privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1/dist/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/animations.js"></script>
+</body>
+</html>

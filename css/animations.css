@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════════
+   THE CLAY GROUP — Animations
+   Reveal utility classes, keyframes
+   ═══════════════════════════════════════════════════ */
+
+/* ─── Reveal Classes (GSAP targets) ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal--left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.reveal--right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.reveal--scale {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Split text words — GSAP SplitText targets */
+.split-reveal .word {
+  opacity: 0;
+  transform: translateY(100%);
+  display: inline-block;
+}
+
+/* ─── Stagger Cards ─── */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ─── Image Reveal (clip mask) ─── */
+.img-reveal {
+  overflow: hidden;
+}
+
+.img-reveal img {
+  transform: scale(1.2);
+  transition: transform var(--duration-cinematic) var(--ease-out);
+}
+
+.img-reveal--visible img {
+  transform: scale(1);
+}
+
+/* ─── Line Draw ─── */
+.line-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+/* ─── Fade In (pure CSS fallback) ─── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── Pulse Glow (for CTAs) ─── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.2); }
+  50% { box-shadow: 0 0 20px 4px rgba(201, 169, 110, 0.1); }
+}
+
+/* ─── Counter tick ─── */
+@keyframes counterTick {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Reduced Motion Override ─── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale,
+  .stagger-children > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .split-reveal .word {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "The Clay Group",
+  "short_name": "Clay Group",
+  "description": "Private Capital Strategy Through Real Estate",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

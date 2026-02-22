@@ -1,0 +1,120 @@
+/* ═══════════════════════════════════════════════════
+   THE CLAY GROUP — Responsive Breakpoints
+   768 / 1024 / 1440 / 1800
+   ═══════════════════════════════════════════════════ */
+
+/* ─── Tablet (768px) ─── */
+@media (max-width: 768px) {
+  .philosophy__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .mpi-teaser__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .method-preview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-showcase__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transformation__data {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .signal__form {
+    flex-direction: column;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .footer__nav {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+
+  .footer__legal {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .footer__legal a {
+    margin-left: 0;
+  }
+}
+
+/* ─── Small Mobile (480px) ─── */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .mpi-teaser__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__content {
+    padding: 0 var(--space-md);
+  }
+
+  .signal__box {
+    padding: var(--space-2xl) var(--space-md);
+  }
+}
+
+/* ─── Desktop Large (1440px+) ─── */
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 var(--space-2xl);
+  }
+}
+
+/* ─── Ultra Wide (1800px+) ─── */
+@media (min-width: 1800px) {
+  :root {
+    --max-width: 1440px;
+  }
+}
+
+/* ─── Intelligence Dashboard Responsive ─── */
+@media (max-width: 768px) {
+  .dashboard__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__chart-bars {
+    height: 150px;
+  }
+}
+
+/* ─── Portfolio Grid Responsive ─── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .portfolio-showcase__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ─── Method Timeline Responsive ─── */
+@media (max-width: 768px) {
+  .method-timeline {
+    padding-left: var(--space-xl);
+  }
+
+  .method-timeline__line {
+    left: 0;
+  }
+}

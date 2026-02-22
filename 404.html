@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Position Not Found — The Clay Group</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">The Clay Group</a>
+      <div class="nav__links">
+        <a href="philosophy.html" class="nav__link">Philosophy</a>
+        <a href="portfolio.html" class="nav__link">Portfolio</a>
+        <a href="intelligence.html" class="nav__link">Intelligence</a>
+        <a href="method.html" class="nav__link">Method</a>
+        <a href="contact.html" class="nav__link nav__link--cta">Private Consultation</a>
+      </div>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--void);">
+    <div style="text-align: center; padding: var(--space-lg);">
+      <p style="font-family: var(--font-display); font-size: var(--text-5xl); font-weight: 300; color: var(--champagne-whisper); line-height: 1; margin-bottom: var(--space-md);">404</p>
+      <h1 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 300; margin-bottom: var(--space-md);">Position Not Found</h1>
+      <p style="color: var(--silver); max-width: 40ch; margin: 0 auto var(--space-xl);">The asset you're looking for has either been repositioned or doesn't exist in our portfolio.</p>
+      <a href="index.html" class="btn btn--outline">Return to Headquarters</a>
+    </div>
+  </main>
+
+  <script type="module" src="js/nav.js"></script>
+</body>
+</html>

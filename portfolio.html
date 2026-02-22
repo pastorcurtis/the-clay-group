@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — The Clay Group</title>
+  <meta name="description" content="The Clay Group strategic property portfolio. Positions engineered for generational wealth across multiple markets.">
+  <meta property="og:title" content="Portfolio — The Clay Group">
+  <meta property="og:description" content="Strategic positions engineered for generational wealth.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">The Clay Group</a>
+      <div class="nav__links">
+        <a href="philosophy.html" class="nav__link">Philosophy</a>
+        <a href="portfolio.html" class="nav__link nav__link--active">Portfolio</a>
+        <a href="intelligence.html" class="nav__link">Intelligence</a>
+        <a href="method.html" class="nav__link">Method</a>
+        <a href="contact.html" class="nav__link nav__link--cta">Private Consultation</a>
+      </div>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" aria-hidden="true">
+    <a href="philosophy.html" class="nav__mobile-link">Philosophy</a>
+    <a href="portfolio.html" class="nav__mobile-link">Portfolio</a>
+    <a href="intelligence.html" class="nav__mobile-link">Intelligence</a>
+    <a href="method.html" class="nav__mobile-link">Method</a>
+    <a href="contact.html" class="nav__mobile-link">Private Consultation</a>
+  </div>
+
+  <main>
+    <section style="padding-top: calc(var(--section-pad) + 80px); background: var(--void);" aria-labelledby="page-title">
+      <div class="container">
+        <p class="section-label reveal">Strategic Positions</p>
+        <h1 class="section-title reveal" id="page-title" style="font-size: var(--text-4xl);">Portfolio</h1>
+        <p class="section-text reveal">Each position represents engineered wealth — strategically acquired, precisely leveraged, and structured for generational returns.</p>
+        <div class="divider reveal"></div>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section style="background: var(--obsidian); padding-top: var(--space-2xl);" aria-label="Property positions">
+      <div class="container">
+        <div class="portfolio-showcase__grid stagger-children">
+
+          <div class="property-card">
+            <div style="width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a1a,#222);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--font-utility);font-size:var(--text-xs);letter-spacing:0.2em;color:var(--ash);text-transform:uppercase;">Property Image</span>
+            </div>
+            <div class="property-card__overlay">
+              <span class="property-card__location">Detroit, MI</span>
+              <h3 class="property-card__name">The Meridian Collection</h3>
+              <span class="property-card__price">$4.2M Portfolio</span>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div style="width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a1a,#222);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--font-utility);font-size:var(--text-xs);letter-spacing:0.2em;color:var(--ash);text-transform:uppercase;">Property Image</span>
+            </div>
+            <div class="property-card__overlay">
+              <span class="property-card__location">Atlanta, GA</span>
+              <h3 class="property-card__name">Sovereign Tower</h3>
+              <span class="property-card__price">$8.7M Position</span>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div style="width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a1a,#222);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--font-utility);font-size:var(--text-xs);letter-spacing:0.2em;color:var(--ash);text-transform:uppercase;">Property Image</span>
+            </div>
+            <div class="property-card__overlay">
+              <span class="property-card__location">Chicago, IL</span>
+              <h3 class="property-card__name">The Obsidian Residences</h3>
+              <span class="property-card__price">$12.1M Position</span>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div style="width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a1a,#222);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--font-utility);font-size:var(--text-xs);letter-spacing:0.2em;color:var(--ash);text-transform:uppercase;">Property Image</span>
+            </div>
+            <div class="property-card__overlay">
+              <span class="property-card__location">Houston, TX</span>
+              <h3 class="property-card__name">Capital Row</h3>
+              <span class="property-card__price">$6.3M Position</span>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div style="width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a1a,#222);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--font-utility);font-size:var(--text-xs);letter-spacing:0.2em;color:var(--ash);text-transform:uppercase;">Property Image</span>
+            </div>
+            <div class="property-card__overlay">
+              <span class="property-card__location">Charlotte, NC</span>
+              <h3 class="property-card__name">The Monument</h3>
+              <span class="property-card__price">$3.8M Position</span>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div style="width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a1a,#222);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--font-utility);font-size:var(--text-xs);letter-spacing:0.2em;color:var(--ash);text-transform:uppercase;">Property Image</span>
+            </div>
+            <div class="property-card__overlay">
+              <span class="property-card__location">Nashville, TN</span>
+              <h3 class="property-card__name">Ivory Gate</h3>
+              <span class="property-card__price">$5.1M Position</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background: var(--void); text-align: center;" aria-label="Consultation prompt">
+      <div class="container container--narrow">
+        <h2 class="section-title reveal">Interested in a Position?</h2>
+        <p class="section-text reveal" style="margin: 0 auto var(--space-xl);">Every engagement begins with understanding your objectives. Let's discuss how a strategic position can serve your wealth goals.</p>
+        <a href="contact.html" class="btn btn--primary reveal">Request Consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">The Clay Group</div>
+          <p class="footer__tagline">Where real estate becomes wealth architecture.</p>
+        </div>
+        <div class="footer__nav">
+          <div class="footer__nav-group">
+            <h4>Navigate</h4>
+            <a href="philosophy.html">Philosophy</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="intelligence.html">Intelligence</a>
+            <a href="method.html">Method</a>
+          </div>
+          <div class="footer__nav-group">
+            <h4>Connect</h4>
+            <a href="contact.html">Private Consultation</a>
+            <a href="mailto:info@theclaygroup.com">Email</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 The Clay Group. All rights reserved.</span>
+        <div class="footer__legal"><a href="privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1/dist/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/animations.js"></script>
+</body>
+</html>
