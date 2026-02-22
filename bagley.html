@@ -94,13 +94,29 @@
       padding-bottom: var(--space-4xl);
     }
 
+    /* Video background */
+    .prop-hero__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .prop-hero__video--visible {
+      opacity: 0.35;
+    }
+
     .prop-hero__bg {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 50% at 60% 40%, rgba(201, 169, 110, 0.05) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 30% 70%, rgba(20, 20, 20, 0.9) 0%, transparent 60%),
-        linear-gradient(to bottom, var(--void) 0%, var(--charcoal) 50%, var(--void) 100%);
+        linear-gradient(to top, var(--void) 0%, transparent 40%),
+        linear-gradient(to bottom, rgba(8, 8, 8, 0.5) 0%, transparent 30%),
+        linear-gradient(to right, rgba(8, 8, 8, 0.7) 0%, transparent 50%);
+      z-index: 1;
     }
 
     /* Slow breathing glow */
@@ -470,6 +486,9 @@
 
   <!-- ═══════════ CINEMATIC HERO ═══════════ -->
   <section class="prop-hero" aria-label="Property hero">
+    <video class="prop-hero__video" id="heroVideo" muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="assets/images/bagley-walkthrough-hd.mp4" type="video/mp4">
+    </video>
     <div class="prop-hero__bg" aria-hidden="true"></div>
     <div class="prop-hero__content">
       <span class="prop-hero__badge">Featured Position</span>
@@ -505,6 +524,21 @@
         </div>
       </div>
     </div>
+
+    <!-- ═══════════ VIDEO SHOWCASE ═══════════ -->
+    <section class="feature-section feature-section--dark" style="text-align: center;" aria-labelledby="walkthrough-heading">
+      <div class="container container--narrow">
+        <p class="section-label reveal">The Walkthrough</p>
+        <h2 class="section-title reveal" id="walkthrough-heading">Step Inside</h2>
+        <div class="reveal--scale" style="margin-top: var(--space-2xl); position: relative; border-radius: var(--radius-md); overflow: hidden; border: var(--border-whisper);">
+          <video controls playsinline preload="metadata" style="width: 100%; display: block; background: var(--void);" poster="">
+            <source src="assets/images/bagley-walkthrough-hd.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="reveal" style="color: var(--ash); font-size: var(--text-sm); margin-top: var(--space-md);">80-second property walkthrough &mdash; fully renovated interior</p>
+      </div>
+    </section>
 
     <!-- ═══════════ THE POSITION ═══════════ -->
     <section class="feature-section feature-section--mid" aria-labelledby="position-heading">
@@ -699,6 +733,16 @@
       // Hero entrance after premiere
       function heroEntrance() {
         document.body.classList.add('loaded');
+
+        // Start video playback with cinematic fade-in
+        const video = document.getElementById('heroVideo');
+        if (video) {
+          video.play().then(() => {
+            video.classList.add('prop-hero__video--visible');
+          }).catch(() => {
+            // Autoplay blocked — still show the page
+          });
+        }
 
         const heroTl = gsap.timeline();
 
