@@ -60,16 +60,14 @@ function initHeroAnimation() {
     ease: 'power2.out',
   })
 
-  // Title — SplitText word reveal
+  // Title — stagger each <span> line
   .add(() => {
     const title = document.querySelector('.hero__title');
-    if (!title || typeof SplitType === 'undefined') return;
+    if (!title) return;
 
-    // SplitType for text splitting (free alternative to GSAP SplitText)
-    // We'll use a simple manual split if SplitType isn't available
-    const words = title.querySelectorAll('span');
-    if (words.length) {
-      gsap.from(words, {
+    const spans = title.querySelectorAll('span');
+    if (spans.length) {
+      gsap.from(spans, {
         yPercent: 100,
         opacity: 0,
         duration: 1,

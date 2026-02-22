@@ -99,6 +99,16 @@
   .dashboard__chart-bars {
     height: 150px;
   }
+
+  .dashboard__trends {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard__trends {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── Portfolio Grid Responsive ─── */
@@ -114,7 +124,7 @@
     padding-left: var(--space-xl);
   }
 
-  .method-timeline__line {
+  .method-timeline__line-container {
     left: 0;
   }
 }

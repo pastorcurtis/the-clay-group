@@ -235,7 +235,6 @@
   overflow: hidden;
   border-radius: var(--radius-md);
   cursor: pointer;
-  group: true;
 }
 
 .property-card__image {

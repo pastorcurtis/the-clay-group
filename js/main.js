@@ -10,6 +10,7 @@ let lenis;
 
 function initLenis() {
   if (prefersReducedMotion()) return;
+  if (typeof Lenis === 'undefined') return;
 
   lenis = new Lenis({
     duration: 1.2,
@@ -33,7 +34,11 @@ function initPageLoader() {
   const loader = document.querySelector('.page-loader');
   const brand = document.querySelector('.page-loader__brand');
 
-  if (!loader || !brand) return;
+  // No loader on this page — still mark as loaded and return
+  if (!loader || !brand) {
+    document.body.classList.add('loaded');
+    return;
+  }
 
   if (prefersReducedMotion()) {
     loader.classList.add('page-loader--hidden');
@@ -70,9 +75,11 @@ function initPageLoader() {
 
 // ─── Register GSAP Plugins ───
 function initGSAP() {
-  gsap.registerPlugin(ScrollTrigger);
+  if (typeof gsap === 'undefined') return;
+  if (typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
-  // Default GSAP settings
   gsap.defaults({
     ease: 'power2.out',
     duration: 1,
