@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bagley Residence — The Clay Group</title>
+  <meta name="description" content="A fully renovated 4-bedroom residence in Detroit's up-and-coming Bagley neighborhood, near the Avenue of Fashion. Modern updates, custom kitchen, finished basement.">
+  <meta property="og:title" content="The Bagley Residence — The Clay Group">
+  <meta property="og:description" content="Fully renovated. Strategically positioned. Detroit's next chapter.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <style>
+    /* ═══════════════════════════════════════════════════
+       PREMIERE — Cinematic Property Reveal
+       ═══════════════════════════════════════════════════ */
+
+    /* ─── Premiere Loader (Movie Title Card) ─── */
+    .premiere {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: var(--void);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: all;
+    }
+
+    .premiere__presents {
+      font-family: var(--font-utility);
+      font-size: var(--text-xs);
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--champagne-dim);
+      opacity: 0;
+    }
+
+    .premiere__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      font-weight: 300;
+      color: var(--ivory);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-align: center;
+      margin-top: var(--space-md);
+      opacity: 0;
+    }
+
+    .premiere__location {
+      font-family: var(--font-utility);
+      font-size: var(--text-xs);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-top: var(--space-lg);
+      opacity: 0;
+    }
+
+    .premiere__line {
+      width: 0;
+      height: 1px;
+      background: var(--champagne-dim);
+      margin-top: var(--space-xl);
+    }
+
+    .premiere--hidden {
+      pointer-events: none;
+    }
+
+    /* ─── Cinematic Hero ─── */
+    .prop-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      background: var(--void);
+      overflow: hidden;
+      padding-bottom: var(--space-4xl);
+    }
+
+    .prop-hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 60% 40%, rgba(201, 169, 110, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 30% 70%, rgba(20, 20, 20, 0.9) 0%, transparent 60%),
+        linear-gradient(to bottom, var(--void) 0%, var(--charcoal) 50%, var(--void) 100%);
+    }
+
+    /* Slow breathing glow */
+    .prop-hero__bg::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      top: 20%;
+      right: 10%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 169, 110, 0.04) 0%, transparent 70%);
+      animation: heroBreath 8s ease-in-out infinite;
+    }
+
+    @keyframes heroBreath {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    .prop-hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+      width: 100%;
+    }
+
+    .prop-hero__badge {
+      font-family: var(--font-utility);
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      border: 1px solid var(--champagne-dim);
+      display: inline-block;
+      padding: var(--space-2xs) var(--space-sm);
+      border-radius: 2px;
+      margin-bottom: var(--space-lg);
+      opacity: 0;
+    }
+
+    .prop-hero__name {
+      font-family: var(--font-display);
+      font-size: var(--text-5xl);
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-md);
+      opacity: 0;
+    }
+
+    .prop-hero__district {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: var(--text-lg);
+      color: var(--silver);
+      margin-bottom: var(--space-xl);
+      opacity: 0;
+    }
+
+    .prop-hero__district strong {
+      color: var(--champagne);
+      font-weight: 400;
+    }
+
+    /* ─── Stats Bar (Film Credits Style) ─── */
+    .stats-bar {
+      border-top: var(--border-whisper);
+      border-bottom: var(--border-whisper);
+      background: rgba(8, 8, 8, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: var(--space-2xl) 0;
+    }
+
+    .stats-bar__grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-lg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .stats-bar__item {
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .stats-bar__value {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1;
+    }
+
+    .stats-bar__label {
+      font-family: var(--font-utility);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-top: var(--space-xs);
+    }
+
+    /* ─── Feature Reveal Sections ─── */
+    .feature-section {
+      padding: var(--section-pad) 0;
+    }
+
+    .feature-section--dark {
+      background: var(--void);
+    }
+
+    .feature-section--mid {
+      background: var(--obsidian);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-3xl);
+    }
+
+    .feature-card {
+      background: var(--charcoal);
+      border: var(--border-whisper);
+      border-radius: var(--radius-md);
+      padding: var(--space-2xl);
+      text-align: center;
+      transition: all var(--duration-base) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: var(--champagne-dim);
+    }
+
+    .feature-card:hover {
+      border-color: var(--champagne-dim);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-champagne);
+    }
+
+    .feature-card__icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-md);
+      display: block;
+    }
+
+    .feature-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--ivory);
+      margin-bottom: var(--space-sm);
+    }
+
+    .feature-card__text {
+      font-size: var(--text-sm);
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    /* ─── Location Story ─── */
+    .location-story {
+      background: var(--void);
+      padding: var(--section-pad) 0;
+    }
+
+    .location-story__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: center;
+    }
+
+    .location-story__map {
+      aspect-ratio: 4/3;
+      background: var(--charcoal);
+      border: var(--border-whisper);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .location-story__map-inner {
+      text-align: center;
+      padding: var(--space-xl);
+    }
+
+    .location-story__map-city {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--ivory);
+      font-weight: 300;
+    }
+
+    .location-story__map-district {
+      font-family: var(--font-utility);
+      font-size: var(--text-xs);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-top: var(--space-sm);
+    }
+
+    .location-story__map-marker {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--champagne);
+      margin-top: var(--space-md);
+      box-shadow: 0 0 20px rgba(201, 169, 110, 0.4), 0 0 60px rgba(201, 169, 110, 0.15);
+      animation: markerPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes markerPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(201, 169, 110, 0.4), 0 0 60px rgba(201, 169, 110, 0.15); }
+      50% { box-shadow: 0 0 30px rgba(201, 169, 110, 0.6), 0 0 80px rgba(201, 169, 110, 0.25); }
+    }
+
+    .location-story__highlights {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .location-story__highlight {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+    }
+
+    .location-story__highlight-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--champagne);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .location-story__highlight-text {
+      color: var(--silver);
+      font-size: var(--text-sm);
+      line-height: 1.7;
+    }
+
+    .location-story__highlight-text strong {
+      color: var(--ivory);
+      font-weight: 400;
+    }
+
+    /* ─── Premiere CTA ─── */
+    .premiere-cta {
+      background: var(--obsidian);
+      padding: var(--section-pad) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .premiere-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 169, 110, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .premiere-cta__title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 300;
+      color: var(--ivory);
+      margin-bottom: var(--space-md);
+    }
+
+    .premiere-cta__text {
+      color: var(--silver);
+      font-size: var(--text-lg);
+      max-width: 45ch;
+      margin: 0 auto var(--space-xl);
+      line-height: 1.8;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .stats-bar__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+      }
+
+      .stats-bar__grid > :last-child {
+        grid-column: 1 / -1;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-story__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ PREMIERE TITLE CARD ═══════════ -->
+  <div class="premiere" aria-hidden="true">
+    <p class="premiere__presents">The Clay Group Presents</p>
+    <h1 class="premiere__title">The Bagley<br>Residence</h1>
+    <p class="premiere__location">Detroit, Michigan</p>
+    <div class="premiere__line"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">The Clay Group</a>
+      <div class="nav__links">
+        <a href="philosophy.html" class="nav__link">Philosophy</a>
+        <a href="portfolio.html" class="nav__link">Portfolio</a>
+        <a href="intelligence.html" class="nav__link">Intelligence</a>
+        <a href="method.html" class="nav__link">Method</a>
+        <a href="contact.html" class="nav__link nav__link--cta">Private Consultation</a>
+      </div>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" aria-hidden="true">
+    <a href="philosophy.html" class="nav__mobile-link">Philosophy</a>
+    <a href="portfolio.html" class="nav__mobile-link">Portfolio</a>
+    <a href="intelligence.html" class="nav__mobile-link">Intelligence</a>
+    <a href="method.html" class="nav__mobile-link">Method</a>
+    <a href="contact.html" class="nav__mobile-link">Private Consultation</a>
+  </div>
+
+  <!-- ═══════════ CINEMATIC HERO ═══════════ -->
+  <section class="prop-hero" aria-label="Property hero">
+    <div class="prop-hero__bg" aria-hidden="true"></div>
+    <div class="prop-hero__content">
+      <span class="prop-hero__badge">Featured Position</span>
+      <h2 class="prop-hero__name">The Bagley Residence</h2>
+      <p class="prop-hero__district">Bagley &mdash; Near the <strong>Avenue of Fashion</strong> &mdash; Detroit, MI</p>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ═══════════ STATS BAR (Film Credits) ═══════════ -->
+    <div class="stats-bar">
+      <div class="stats-bar__grid">
+        <div class="stats-bar__item">
+          <div class="stats-bar__value">4</div>
+          <div class="stats-bar__label">Bedrooms</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__value">2.5</div>
+          <div class="stats-bar__label">Bathrooms</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__value">2,000</div>
+          <div class="stats-bar__label">Square Feet</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__value">Full</div>
+          <div class="stats-bar__label">Finished Basement</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__value">2025</div>
+          <div class="stats-bar__label">Renovated</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ THE POSITION ═══════════ -->
+    <section class="feature-section feature-section--mid" aria-labelledby="position-heading">
+      <div class="container">
+        <p class="section-label reveal">The Position</p>
+        <h2 class="section-title reveal" id="position-heading">Fully Renovated. Strategically Positioned.</h2>
+        <p class="section-text reveal" style="max-width: 60ch;">A ground-up renovation in one of Detroit's most promising corridors. The Bagley Residence sits in the heart of an emerging wealth district — steps from the Avenue of Fashion, anchored in a neighborhood undergoing strategic transformation.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ FEATURE HIGHLIGHTS ═══════════ -->
+    <section class="feature-section feature-section--dark" aria-labelledby="features-heading">
+      <div class="container">
+        <p class="section-label reveal">Property Intelligence</p>
+        <h2 class="section-title reveal" id="features-heading">What Sets This Apart</h2>
+
+        <div class="feature-grid stagger-children">
+          <div class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">&#9670;</span>
+            <h3 class="feature-card__title">Custom Kitchen</h3>
+            <p class="feature-card__text">Custom-built cabinetry with modern finishes. Designed for function and visual authority — not cookie-cutter renovation.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">&#9671;</span>
+            <h3 class="feature-card__title">Finished Basement</h3>
+            <p class="feature-card__text">2,000 sqft of fully finished lower-level space. A second living zone that doubles the usable footprint of the property.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">&#9672;</span>
+            <h3 class="feature-card__title">Modern Throughout</h3>
+            <p class="feature-card__text">Every surface, system, and fixture has been updated. This is not a cosmetic flip — it is a complete architectural restoration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ LOCATION STORY ═══════════ -->
+    <section class="location-story" aria-labelledby="location-heading">
+      <div class="container">
+        <div class="location-story__grid">
+          <div class="reveal--left">
+            <div class="location-story__map">
+              <div class="location-story__map-inner">
+                <div class="location-story__map-city">Detroit</div>
+                <div class="location-story__map-district">Bagley &bull; Avenue of Fashion</div>
+                <div class="location-story__map-marker" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal--right">
+            <p class="section-label" id="location-heading">Location Intelligence</p>
+            <h2 class="section-title">The Bagley Corridor</h2>
+            <p style="color: var(--silver); line-height: 1.9; margin-bottom: var(--space-lg);">Bagley isn't just a neighborhood — it's a trajectory. Positioned near Detroit's historic Avenue of Fashion on Livernois, this corridor is experiencing the kind of strategic redevelopment that creates generational equity for early movers.</p>
+
+            <div class="location-story__highlights">
+              <div class="location-story__highlight">
+                <div class="location-story__highlight-dot"></div>
+                <p class="location-story__highlight-text"><strong>Avenue of Fashion</strong> — Historic Livernois commercial corridor undergoing multi-million dollar revitalization</p>
+              </div>
+              <div class="location-story__highlight">
+                <div class="location-story__highlight-dot"></div>
+                <p class="location-story__highlight-text"><strong>Up-and-coming district</strong> — Early-stage appreciation window before institutional capital drives prices</p>
+              </div>
+              <div class="location-story__highlight">
+                <div class="location-story__highlight-dot"></div>
+                <p class="location-story__highlight-text"><strong>Detroit momentum</strong> — City-wide reinvestment creating compounding value across connected neighborhoods</p>
+              </div>
+              <div class="location-story__highlight">
+                <div class="location-story__highlight-dot"></div>
+                <p class="location-story__highlight-text"><strong>Strategic positioning</strong> — Residential anchor in a mixed-use growth zone with commercial proximity</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ PREMIERE CTA ═══════════ -->
+    <section class="premiere-cta" aria-label="Schedule viewing">
+      <div class="container">
+        <p class="section-label reveal">Private Viewing</p>
+        <h2 class="premiere-cta__title reveal">Experience This Position</h2>
+        <p class="premiere-cta__text reveal">Qualified principals are invited to schedule a private showing. This is not a listing — it is a strategic opportunity.</p>
+        <a href="contact.html" class="btn btn--primary reveal">Request Private Showing</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">The Clay Group</div>
+          <p class="footer__tagline">Where real estate becomes wealth architecture.</p>
+        </div>
+        <div class="footer__nav">
+          <div class="footer__nav-group">
+            <h4>Navigate</h4>
+            <a href="philosophy.html">Philosophy</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="intelligence.html">Intelligence</a>
+            <a href="method.html">Method</a>
+          </div>
+          <div class="footer__nav-group">
+            <h4>Connect</h4>
+            <a href="contact.html">Private Consultation</a>
+            <a href="mailto:info@theclaygroup.com">Email</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 The Clay Group. All rights reserved.</span>
+        <div class="footer__legal"><a href="privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1/dist/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/animations.js"></script>
+
+  <!-- Premiere Sequence -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const premiere = document.querySelector('.premiere');
+      if (!premiere) return;
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reducedMotion) {
+        premiere.style.display = 'none';
+        document.body.classList.add('loaded');
+        return;
+      }
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          premiere.classList.add('premiere--hidden');
+          gsap.to(premiere, { autoAlpha: 0, duration: 0.01, onComplete: () => {
+            premiere.style.display = 'none';
+            // Trigger hero entrance
+            heroEntrance();
+          }});
+        }
+      });
+
+      // Act I — "The Clay Group Presents" fades in
+      tl.to('.premiere__presents', {
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        delay: 0.3
+      })
+      // Act II — Title card reveals
+      .to('.premiere__title', {
+        opacity: 1,
+        duration: 1.2,
+        ease: 'power2.out',
+      }, '-=0.3')
+      // Act III — Location appears
+      .to('.premiere__location', {
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power2.out',
+      }, '-=0.4')
+      // Accent line draws
+      .to('.premiere__line', {
+        width: '80px',
+        duration: 0.8,
+        ease: 'power2.inOut',
+      }, '-=0.5')
+      // Hold the moment
+      .to({}, { duration: 1 })
+      // Fade everything out
+      .to('.premiere__presents, .premiere__title, .premiere__location, .premiere__line', {
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.in',
+      })
+      // Wipe up
+      .to(premiere, {
+        yPercent: -100,
+        duration: 1,
+        ease: 'power3.inOut',
+      });
+
+      // Hero entrance after premiere
+      function heroEntrance() {
+        document.body.classList.add('loaded');
+
+        const heroTl = gsap.timeline();
+
+        heroTl.to('.prop-hero__badge', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+        })
+        .to('.prop-hero__name', {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+        }, '-=0.4')
+        .to('.prop-hero__district', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+        }, '-=0.4')
+        // Stats bar items cascade in
+        .to('.stats-bar__item', {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'power2.out',
+        }, '-=0.2');
+      }
+    });
+  </script>
+
+</body>
+</html>
