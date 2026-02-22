@@ -199,6 +199,74 @@
   margin-top: var(--space-2xs);
 }
 
+/* ─── Founder / CEO ─── */
+.founder {
+  background: var(--void);
+}
+
+.founder__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+.founder__image-wrap {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.founder__image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: var(--border-whisper);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+
+.founder__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+  filter: grayscale(15%) contrast(1.05);
+  transition: filter var(--duration-base) var(--ease-out);
+}
+
+.founder__image-wrap:hover .founder__image {
+  filter: grayscale(0%) contrast(1);
+}
+
+.founder__role {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-top: calc(var(--space-xs) * -1);
+  margin-bottom: var(--space-md);
+}
+
+.founder__bio {
+  color: var(--silver);
+  line-height: 1.9;
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .founder__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .founder__image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
 /* ─── The Signal (Newsletter) ─── */
 .signal {
   background: var(--void);
